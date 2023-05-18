@@ -3,6 +3,7 @@ let result = "";
 let is_calc = false;
 
 
+
 window.onload = function () {
   result = document.getElementById('result');
 };
@@ -40,6 +41,9 @@ function ope_click(val){
 }
 
 
+    
+
+
 function equal_click(){
   if(is_ope_last())  result.value = result.value.slice(0, -1);
 
@@ -54,5 +58,6 @@ function equal_click(){
 
 
 function is_ope_last(){
-  return ["+","-","×","÷"].includes(result.value.toString().slice(-1));
+  return ["+","-","*","/"].includes(result.value.toString().slice(-1));
 }
+
