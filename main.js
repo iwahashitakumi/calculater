@@ -24,10 +24,15 @@ function num_click(val){
     result.value = "0.";
   }else if(result.value == "0"){
     result.value = val;
-  }else{
+  }else if(result.value == "0." && val == "."){
+    result.value = "0.";
+  }
+  else{
     result.value += val;
   }
 }
+
+
 
 
 function ope_click(val){
@@ -56,8 +61,21 @@ function equal_click(){
   }
 }
 
+function dot_click(val) {
+  if(is_calc) is_calc = false;
+  
+  if(is_dot_last()) {
+    result.value = result.value.slice(0,-1) + val;
+  }
+  else {
+    result.value += val;
+  }
+}
 
 function is_ope_last(){
   return ["+","-","*","/"].includes(result.value.toString().slice(-1));
 }
 
+function is_dot_last() {
+  return ["."].includes(result.value.toString().slice(-1));
+}
